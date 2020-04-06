@@ -3,10 +3,10 @@
 int main()
 {
 	// pointer basic
-	int a1 = 3;
+	const int a1 = 3;
 	printf("after (int a1 = 3) --> a1 = [%d]\n", a1);
 
-	int *b1 = &a1;
+	int *b1 = (int *)&a1;
 	printf("after (int *b1 = &a1) --> a1 = [%d]\n", a1);
 
 	*b1 = 2;
@@ -15,7 +15,7 @@ int main()
 	// tentative volatile en c
 
 	printf("\n");
-	volatile const int a2 = 3;
+	const int a2 = 3;
 	printf("after (volatile const int a2 = 3) --> a2 = [%d]\n", a2);
 
 	int * b2 = (int*)&a2;
