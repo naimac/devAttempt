@@ -1,0 +1,1 @@
+for i in *.jpeg; do convert "myimage.jpeg" -quality 20% ./reduced/myimage.jpg; done
