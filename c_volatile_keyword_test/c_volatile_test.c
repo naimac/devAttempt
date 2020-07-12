@@ -15,7 +15,7 @@ int main()
 	// tentative volatile en c
 
 	printf("\n");
-	const int a2 = 3;
+	volatile const int a2 = 3;
 	printf("after (volatile const int a2 = 3) --> a2 = [%d]\n", a2);
 
 	int * b2 = (int*)&a2;
