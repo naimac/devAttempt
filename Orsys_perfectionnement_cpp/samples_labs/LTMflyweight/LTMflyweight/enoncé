@@ -1,0 +1,21 @@
+
+// Classes IconObject et IconFlyWeight
+// Créez la classe Factory
+
+int main() {
+    atexit(clearAfterMain); // clear after main()
+
+    IconObject * pi1 = Factory::create("word");
+    IconObject * pi2 = Factory::create("cpp");
+    IconObject * pi3 = Factory::create("word");
+
+    const unsigned char * pIcon1 = pi1->getIcon();
+    const unsigned char * pIcon2 = pi2->getIcon();
+    const unsigned char * pIcon3 = pi3->getIcon();
+
+    std::cout << (void*)pIcon1 << std::endl;
+    std::cout << (void*)pIcon2 << std::endl;
+    std::cout << (void*)pIcon3 << std::endl;
+
+    return 0;
+}

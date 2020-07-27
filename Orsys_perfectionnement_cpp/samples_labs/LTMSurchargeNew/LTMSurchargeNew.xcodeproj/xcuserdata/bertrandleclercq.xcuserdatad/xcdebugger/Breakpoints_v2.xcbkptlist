@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "7674CB1E-5E49-45FC-8CA0-47422ECA6F12"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7E237B00-92C6-4297-885D-FB44355CADA1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LTMSurchargeNew/main.cpp"
+            timestampString = "589196867.466591"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "X()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7E237B00-92C6-4297-885D-FB44355CADA1 - 9792b2b6426277ae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "X::X()"
+                  moduleName = "LTMSurchargeNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bertrandleclercq/Dropbox/LTM%20dev%20&amp;%20Cours/Formations/Cours%20C++%20perfectionnement%20POP/samples%20and%20labs/LTMSurchargeNew/LTMSurchargeNew/main.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "21">
+               </Location>
+               <Location
+                  uuid = "7E237B00-92C6-4297-885D-FB44355CADA1 - 9792b2b6426277ae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "X::X()"
+                  moduleName = "LTMSurchargeNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bertrandleclercq/Dropbox/LTM%20dev%20&amp;%20Cours/Formations/Cours%20C++%20perfectionnement%20POP/samples%20and%20labs/LTMSurchargeNew/LTMSurchargeNew/main.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "26">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A64AE608-A3A8-4076-A280-03321442FE3F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LTMSurchargeNew/main.cpp"
+            timestampString = "589196867.466949"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "~X()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A64AE608-A3A8-4076-A280-03321442FE3F - ac5139fbfa22466f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "X::~X()"
+                  moduleName = "LTMSurchargeNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bertrandleclercq/Dropbox/LTM%20dev%20&amp;%20Cours/Formations/Cours%20C++%20perfectionnement%20POP/samples%20and%20labs/LTMSurchargeNew/LTMSurchargeNew/main.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "21">
+               </Location>
+               <Location
+                  uuid = "A64AE608-A3A8-4076-A280-03321442FE3F - ac5139fbfa22466f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "X::~X()"
+                  moduleName = "LTMSurchargeNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bertrandleclercq/Dropbox/LTM%20dev%20&amp;%20Cours/Formations/Cours%20C++%20perfectionnement%20POP/samples%20and%20labs/LTMSurchargeNew/LTMSurchargeNew/main.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "34">
+               </Location>
+               <Location
+                  uuid = "A64AE608-A3A8-4076-A280-03321442FE3F - ac5139fbfa22466f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "X::~X()"
+                  moduleName = "LTMSurchargeNew"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bertrandleclercq/Dropbox/LTM%20dev%20&amp;%20Cours/Formations/Cours%20C++%20perfectionnement%20POP/samples%20and%20labs/LTMSurchargeNew/LTMSurchargeNew/main.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "8">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "75ED2C49-A764-4EB8-A5C5-3FC293589B0B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LTMSurchargeNew/main.cpp"
+            timestampString = "589196867.467211"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "operator new(taille)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ACB0DC60-C051-4C8D-B0B8-1E27FD921849"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LTMSurchargeNew/main.cpp"
+            timestampString = "589196867.467509"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "main()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3022036C-88D1-4DB8-A128-F8EBCC75E7A0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LTMSurchargeNew/main.cpp"
+            timestampString = "589196867.46778"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "main()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9F66A109-F67D-4940-BEB6-4661C102FBF6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LTMSurchargeNew/main.cpp"
+            timestampString = "589196867.468118"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "operator new(taille)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8775A7F1-FF6C-484C-9CBF-AD4DD08728C9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LTMSurchargeNew/main.cpp"
+            timestampString = "589196867.46859"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "operator delete(p)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CDF21665-67CE-485B-8FFA-54E4775857B6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LTMSurchargeNew/main.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "main()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
