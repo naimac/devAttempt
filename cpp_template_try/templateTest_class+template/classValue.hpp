@@ -17,10 +17,10 @@ namespace space
     class MyTemplate
     {
     private:
-        ClassValue m_instClassValue;
+        static ClassValue m_instClassValue;
 
     public:
-        void printAnyValue(T anyVal);
+        static void printAnyValue(T anyVal);
     };
 
     template <class T>
