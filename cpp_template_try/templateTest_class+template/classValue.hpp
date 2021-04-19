@@ -11,23 +11,23 @@ namespace space
         Value();
         Value(const std::string &val);
         ~Value();
-        std::string getValue();
+    std::string getValue();
     };
 
     template <class T>
     class MyTemplate
     {
     private:
-        // static Value m_instClassValue;
-        static Value inst_classValue();
+        Value m_instClassValue;
 
     public:
-        static void printAnyValue(T anyVal);
+        void printAnyValue(T anyVal);
     };
 
     template <class T>
     void MyTemplate<T>::printAnyValue(T anyVal)
     {
+        std::string retValue = m_instClassValue.getValue();
         // std::cout << "{" << m_instClassValue.getValue().c_str() << "} - [" << anyVal << "]" << std::endl;
 
         std::cout << "+++++++++ template [" << anyVal << "] +++++++++" << std::endl;
