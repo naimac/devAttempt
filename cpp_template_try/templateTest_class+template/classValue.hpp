@@ -27,8 +27,9 @@ namespace space
     template <class T>
     void MyTemplate<T>::printAnyValue(T anyVal)
     {
-        std::string retValue = m_instClassValue.getValue();
-        // std::cout << "{" << m_instClassValue.getValue().c_str() << "} - [" << anyVal << "]" << std::endl;
+        m_instClassValue = Value("YOUPI");
+        // std::string retValue = m_instClassValue.getValue();
+        std::cout << "{" << m_instClassValue.getValue().c_str() << "} - [" << anyVal << "]" << std::endl;
 
         std::cout << "+++++++++ template [" << anyVal << "] +++++++++" << std::endl;
     }
