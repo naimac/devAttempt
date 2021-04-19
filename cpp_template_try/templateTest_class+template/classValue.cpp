@@ -2,15 +2,15 @@
 
 using namespace space;
 
-ClassValue::ClassValue(const std::string &val) : m_val {val}
+Value::Value(const std::string &val) : m_val {val}
 {
 }
 
-ClassValue::~ClassValue()
+Value::~Value()
 {
 }
 
-std::string ClassValue::getValue() const
+std::string Value::getValue() const
 {
     return this->m_val;
 }

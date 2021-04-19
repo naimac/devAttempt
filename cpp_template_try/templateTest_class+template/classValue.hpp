@@ -2,14 +2,14 @@
 
 namespace space
 {
-    class ClassValue
+    class Value
     {
     private:
         std::string m_val;
         /* data */
     public:
-        ClassValue(const std::string &val);
-        ~ClassValue();
+        Value(const std::string &val);
+        ~Value();
         std::string getValue() const;
     };
 
@@ -17,7 +17,7 @@ namespace space
     class MyTemplate
     {
     private:
-        static ClassValue m_instClassValue;
+        static Value m_instClassValue;
 
     public:
         static void printAnyValue(T anyVal);
@@ -28,6 +28,6 @@ namespace space
     {
         // m_instClassValue = ClassValue("template_TOTO");
         // std::cout << "{" << m_instClassValue.getValue().c_str() << "} - [" << anyVal << "]" << std::endl;
-        std::cout << "+++++++++ template +++++++++" << std::endl;
+        std::cout << "+++++++++ template [" << anyVal << "] +++++++++" << std::endl;
     }
 }
