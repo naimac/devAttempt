@@ -1,20 +1,5 @@
-#include <iostream>
-#include "template.hpp"
-
-// int main()
-// {
-//     TestTemp<int> tempObj;
-//     std::cout << "COUCOU" << std::endl;
-//     tempObj.setValue(2);
-//     int nValue = tempObj.getValue();
-//     std::cout << "value [" << nValue << "]" << std::endl;
-//     return 0;
-// }
-
-// ******************************************* //
-
+#include "templateTest2.hpp"
 #include <stdexcept>
-using namespace std;
 
 int main()
 {
