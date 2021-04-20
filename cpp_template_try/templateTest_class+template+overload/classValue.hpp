@@ -12,6 +12,7 @@ namespace space
         Value(const std::string &val);
         ~Value();
         std::string getValue();
+        std::string getValue(const std::string &s);
     };
 
     template <class T>

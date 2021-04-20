@@ -12,6 +12,7 @@ int main(void)
     Value myDefaultVal;
 
     std::cout << "main_instValue >> " << inst_classValue.getValue().c_str() << " <<" << std::endl;
-    std::cout << "default val [" << myDefaultVal.getValue() << "]"<< std::endl;
+    std::cout << "default val_overload [" << myDefaultVal.getValue("{pouet}") << "]"<< std::endl;
+    std::cout << "default val_original [" << myDefaultVal.getValue() << "]"<< std::endl;
     return 0;
 }

@@ -18,3 +18,9 @@ std::string Value::getValue()
 {
     return m_val;
 }
+
+std::string Value::getValue(const std::string &s)
+{
+    std::string str = s + " [X] " + m_val;
+    return str;
+}
