@@ -1,0 +1,9 @@
+2019/07/24 10:19:58.566957 [INFO ] ==== START ====
+2019/07/24 10:19:58.567013 [DEBUG] ==================== TEST AGENT.STOP_FAIL ====================
+2019/07/24 10:19:58.567023 [DEBUG] Agent::Agent
+2019/07/24 10:19:58.567029 [DEBUG] Agent::setStaticInstance
+2019/07/24 10:19:58.567070 [DEBUG] ++++++++++++++++++++> [agent.stop_failure.test4] l_agent.stop(SIGTERM)
+2019/07/24 10:19:58.567079 [DEBUG] Agent::stop Signal [15] received !
+2019/07/24 10:19:58.567094 [DEBUG] ++++++++++++++++++++> [agent.stop_failure.test4] l_mockController.y6stop(SIGTERM)
+2019/07/24 10:19:58.567102 [DEBUG] Agent::~Agent
+2019/07/24 10:19:58.567121 [INFO ] ====  END  ====

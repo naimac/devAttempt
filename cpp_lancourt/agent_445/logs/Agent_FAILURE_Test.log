@@ -1,0 +1,28 @@
+2019/07/24 10:19:58.559295 [INFO ] ==== START ====
+2019/07/24 10:19:58.559314 [DEBUG] ==================== TEST AGENT.FAIL ====================
+2019/07/24 10:19:58.559325 [DEBUG] Agent::Agent
+2019/07/24 10:19:58.559392 [DEBUG] Agent::setStaticInstance
+2019/07/24 10:19:58.559459 [DEBUG] before expect_eq on l_agent.init
+2019/07/24 10:19:58.559468 [DEBUG] ++++++++++++++++++++> [agent.failure.test1] l_agent.init -> expect failure 
+2019/07/24 10:19:58.559475 [DEBUG] Agent::init
+2019/07/24 10:19:58.559481 [DEBUG] Agent::initSignalHandler
+2019/07/24 10:19:58.559487 [INFO ] Initialize sigaction
+2019/07/24 10:19:58.559497 [DEBUG] Sigaction initialized
+2019/07/24 10:19:58.559503 [DEBUG] -----
+2019/07/24 10:19:58.559529 [DEBUG] >>> [agent.failure.test.1] l_mockController.init(p_json) -> FAILURE
+2019/07/24 10:19:58.559549 [DEBUG] ++++++++++++++++++++> [agent.failure.test2] l_agent.init -> expect success 
+2019/07/24 10:19:58.559555 [DEBUG] Agent::init
+2019/07/24 10:19:58.559560 [DEBUG] Agent::initSignalHandler
+2019/07/24 10:19:58.559565 [INFO ] Initialize sigaction
+2019/07/24 10:19:58.559571 [DEBUG] Sigaction initialized
+2019/07/24 10:19:58.559576 [DEBUG] -----
+2019/07/24 10:19:58.559590 [DEBUG] >>> [agent.failure.test.2] l_mockController.init(p_json) -> SUCCESS
+2019/07/24 10:19:58.559596 [DEBUG] ++++++++++++++++++++> [agent.failure.test2] l_agent.start -> expect failure 
+2019/07/24 10:19:58.559602 [DEBUG] Agent::start
+2019/07/24 10:19:58.559614 [DEBUG] >>> [agent.failure.test.2] l_mockController.start() -> FAILURE
+2019/07/24 10:19:58.566607 [DEBUG] ++++++++++++++++++++> [agent.failure.test3] l_agent.stop(SIGTERM)
+2019/07/24 10:19:58.566650 [DEBUG] Agent::stop Signal [15] received !
+2019/07/24 10:19:58.566689 [DEBUG] >>> [agent.failure.test.1/2] l_mockController.stop() -> SUCCESS
+2019/07/24 10:19:58.566699 [DEBUG] Stop Agent process : Done
+2019/07/24 10:19:58.566746 [DEBUG] Agent::~Agent
+2019/07/24 10:19:58.566804 [INFO ] ====  END  ====

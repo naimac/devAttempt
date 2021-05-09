@@ -1,0 +1,20 @@
+2019/07/24 10:19:58.552788 [INFO ] ==== START ====
+2019/07/24 10:19:58.552829 [DEBUG] ==================== TEST AGENT.SUCCESS ====================
+2019/07/24 10:19:58.552839 [DEBUG] Agent::Agent
+2019/07/24 10:19:58.552844 [DEBUG] Agent::setStaticInstance
+2019/07/24 10:19:58.552901 [DEBUG] ++++++++++++++++++++> l_agent.init -> SUCCESS
+2019/07/24 10:19:58.552907 [DEBUG] Agent::init
+2019/07/24 10:19:58.552912 [DEBUG] Agent::initSignalHandler
+2019/07/24 10:19:58.552918 [INFO ] Initialize sigaction
+2019/07/24 10:19:58.552925 [DEBUG] Sigaction initialized
+2019/07/24 10:19:58.552930 [DEBUG] -----
+2019/07/24 10:19:58.552950 [DEBUG] >>> l_mockController.init(p_json) -> SUCCESS
+2019/07/24 10:19:58.553026 [DEBUG] ++++++++++++++++++++> New Thread calling l_agent.stop(SIGTERM)
+2019/07/24 10:19:58.558639 [DEBUG] Agent::stop Signal [15] received !
+2019/07/24 10:19:58.558727 [DEBUG] >>> l_mockController.stop(SIGTERM) -> SUCCESS
+2019/07/24 10:19:58.558740 [DEBUG] Stop Agent process : Done
+2019/07/24 10:19:58.558870 [DEBUG] ++++++++++++++++++++> l_agent.start -> SUCCESS
+2019/07/24 10:19:58.558908 [DEBUG] Agent::start
+2019/07/24 10:19:58.558935 [DEBUG] >>> l_mockController.start -> SUCCESS
+2019/07/24 10:19:58.558946 [DEBUG] Agent::~Agent
+2019/07/24 10:19:58.559008 [INFO ] ====  END  ====

@@ -1,0 +1,9 @@
+2019/07/24 10:19:58.507119 [INFO ] ==== START ====
+2019/07/24 10:19:58.507167 [DEBUG] ==================== TEST STOPPER.SUCCESS ====================
+2019/07/24 10:19:58.507174 [INFO ] Stopper::Stopper
+2019/07/24 10:19:58.507213 [DEBUG] ++++++++++++++++++++> [stopper.success.test1] l_stopper.init
+2019/07/24 10:19:58.507219 [INFO ] Stopper::init
+2019/07/24 10:19:58.507225 [DEBUG] ++++++++++++++++++++> [stopper.success.test1] l_stopper.stopModule
+2019/07/24 10:19:58.507231 [INFO ] Stopper::stopModule
+2019/07/24 10:19:58.507252 [INFO ] Stopper::~Stopper
+2019/07/24 10:19:58.507258 [INFO ] ====  END  ====
