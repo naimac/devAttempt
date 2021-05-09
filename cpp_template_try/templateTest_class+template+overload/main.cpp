@@ -9,10 +9,10 @@ int main(void)
     MyTemplate<std::string> myT;
     myT.printAnyValue(std::string("main_pouet"));
 
-    Value myDefaultVal;
-
     std::cout << "main_instValue >> " << inst_classValue.getValue().c_str() << " <<" << std::endl;
-    std::cout << "default val_overload [" << myDefaultVal.getValue("{pouet}") << "]"<< std::endl;
+
+    Value myDefaultVal;
     std::cout << "default val_original [" << myDefaultVal.getValue() << "]"<< std::endl;
+    std::cout << "default val_overload [" << myDefaultVal.getValue("{pouet}") << "]"<< std::endl;
     return 0;
 }

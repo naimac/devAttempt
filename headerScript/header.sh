@@ -1,0 +1,73 @@
+#!/bin/bash
+
+CURRENT_PATH=$(pwd)
+CURRENT_YEAR=`date '+%Y'`
+USERNAME=`git config user.name`
+FILE=$( find $CURRENT_PATH -type f \( -name "*.txt" -o -name "*.java" -o -name "*.c" \) )
+VERSION=0.0
+
+TEMPLATE_FILE="./template"
+TMP_TEMPLATE_FILE="/tmp/template"
+cp $TEMPLATE_FILE $TMP_TEMPLATE_FILE
+
+HEADER_LENGTH=50
+
+for CURRENT_FILE in $FILE
+do
+	EXTENSION="${CURRENT_FILE##*.}"
+	echo ${CURRENT_FILE}
+	CURRENT_DATE=$(stat -c %y ${CURRENT_FILE} | cut -d " " -f1)
+	echo $CURRENT_DATE
+	cp $TEMPLATE_FILE $TMP_TEMPLATE_FILE
+
+	case $EXTENSION in
+		"java"|"c")
+			HEADER_EDGE="/"
+			HEADER_FILLER="\*"
+	#		HEADER_CENTER_END="*/\n"
+			;;
+		"txt")
+			HEADER_EDGE="/"
+			HEADER_FILLER="#"
+	#		HEADER_CENTER_END="#\n"
+			;;
+	esac
+
+		# CONSTRUCTION DE LA LIGNE DE FIORITURE POUR ENCADREMENT EN TETE ET FIN DE HEADER
+		i=0 #compteur de caracteres sur une ligne
+		while [[ $i -lt $HEADER_LENGTH ]]; do
+			HEADER_EDGE+=$HEADER_FILLER
+			i=$[$i + 1]
+		done
+		HEADER_EDGE+="/"
+		# TRICKS POUR QUE LE SED AFFICHE CORRECTEMENT LES /
+		HEADER_EDGE_SED=$(echo $HEADER_EDGE | sed 's/\\//g')
+
+		# LIGNE DE COMMENTAIRE POUR ENCADREMENT DU HEADER A LA 1ERE LIGNE
+		sed -i "1s,^,$HEADER_EDGE_SED\n,g" $TMP_TEMPLATE_FILE
+
+		# LIGNE DE COMMENTAIRE POUR ENCADREMENT DU HEADER EN FIN DE LIGNE
+		echo "$HEADER_EDGE_SED" >> $TMP_TEMPLATE_FILE
+
+		# HEADER : POSITIONNEMENT CARACTERE DE COMMENTAIRE EN TETE DE LIGNES DU MILIEU
+		LINE_COUNT=`cat $TMP_TEMPLATE_FILE | wc -l`
+		j=2
+		while [ $j -lt $LINE_COUNT ]; do
+			sed -i "${j}s/^/\/$HEADER_FILLER/" $TMP_TEMPLATE_FILE
+			j=$[$j+1]
+		done
+
+		# INSERTION HEADER FORMATED EN TETE FICHIER (.java/.c etc)
+		cat $CURRENT_FILE >> $TMP_TEMPLATE_FILE
+		cat $TMP_TEMPLATE_FILE > $CURRENT_FILE
+		
+		cat $CURRENT_FILE
+
+		sed	-i "2s/[0-9]\{4\}/$CURRENT_YEAR/g" $CURRENT_FILE
+		sed -i "s/[0-9]\{2\}\/[0-9]\{2\}\/[0-9]\{2\}/$CURRENT_DATE/g" $CURRENT_FILE
+		sed -i "1,25s/[0-9].[0-9].[0-9]/$VERSION/g" $CURRENT_FILE
+		sed -i "1,25s/\(Author : \).*/\1 $USERNAME/g" $CURRENT_FILE
+done
+
+# COMPTAGE NOMBRE CARACTERES
+# COUNT=${#VAR}

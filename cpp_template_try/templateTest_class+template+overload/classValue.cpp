@@ -16,6 +16,9 @@ Value::~Value()
 
 std::string Value::getValue()
 {
+    MyTemplate<std::string> myT;
+    myT.printAnyValue(std::string("main_pouet"));
+    
     return m_val;
 }
 
