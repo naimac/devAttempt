@@ -1,0 +1,9 @@
+2019/07/24 10:19:58.538448 [INFO ] ==== START ====
+2019/07/24 10:19:58.538505 [DEBUG] ==================== Start test 1 : ConfigReceiverSucceed ====================
+2019/07/24 10:19:58.538516 [DEBUG] ConfigReceiver::ConfigReceiver
+2019/07/24 10:19:58.538588 [INFO ] ConfigReceiver::init
+2019/07/24 10:19:58.538595 [INFO ] ConfigReceiver::initNetconfServer 
+2019/07/24 10:19:58.538630 [INFO ] ConfigReceiver::stop [15]
+2019/07/24 10:19:58.538644 [INFO ] ConfigReceiver::~ConfigReceiver
+2019/07/24 10:19:58.538649 [INFO ] ConfigReceiver::stop [15]
+2019/07/24 10:19:58.538681 [INFO ] ====  END  ====

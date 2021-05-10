@@ -1,0 +1,18 @@
+2019/07/24 10:19:58.547254 [INFO ] ==== START ====
+2019/07/24 10:19:58.547307 [DEBUG] ==================== Start test 1 : StatusReceiverSucceed ====================
+2019/07/24 10:19:58.547314 [DEBUG] StatusReceiver::StatusReceiver
+2019/07/24 10:19:58.547404 [INFO ] StatusReceiver::init
+2019/07/24 10:19:58.547433 [DEBUG] ThreadID [9942912] | Receiver::init --> BIND SUCCEED !
+2019/07/24 10:19:58.547439 [INFO ] StatusReceiver::start
+2019/07/24 10:19:58.547485 [DEBUG] ++ i_protobufThread created and joinable ++
+2019/07/24 10:19:58.547492 [INFO ] StatusReceiver::stop [15]
+2019/07/24 10:19:58.547509 [DEBUG] --------------- BEFORE closing the socket
+2019/07/24 10:19:58.547515 [DEBUG] Socket still open
+2019/07/24 10:19:58.547520 [DEBUG] close the socket
+2019/07/24 10:19:58.547524 [INFO ] Receiver::receiveProtobuf - ThreadID [-40556800]
+2019/07/24 10:19:58.547524 [INFO ] Receiver::receiveProtobuf - ThreadID [-40556800]
+2019/07/24 10:19:58.547550 [DEBUG] Socket closed
+2019/07/24 10:19:58.547587 [DEBUG] Joining i_protobufThread
+2019/07/24 10:19:58.547617 [DEBUG] xxxxxxxxxxxxxxx
+2019/07/24 10:19:58.547626 [INFO ] StatusReceiver::~StatusReceiver
+2019/07/24 10:19:58.547631 [INFO ] ====  END  ====

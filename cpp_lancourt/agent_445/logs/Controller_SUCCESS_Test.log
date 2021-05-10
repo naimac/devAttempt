@@ -1,0 +1,16 @@
+2019/07/22 16:25:13.757669 [INFO ] ==== START ====
+2019/07/22 16:25:13.757711 [DEBUG] ==================== Start test 1 : ControllerSucceed ====================
+2019/07/22 16:25:13.757726 [INFO ] Controller::Controller
+2019/07/22 16:25:13.757805 [INFO ] Controller::init 
+2019/07/22 16:25:13.757836 [DEBUG] init configReceiver
+2019/07/22 16:25:13.757866 [DEBUG] init statusReceiver
+2019/07/22 16:25:13.757884 [DEBUG] init launcher
+2019/07/22 16:25:13.757898 [DEBUG] init stopper
+2019/07/22 16:25:13.757911 [DEBUG] init observer
+2019/07/22 16:25:13.757983 [DEBUG] Controller::stopAll [2]
+2019/07/22 16:25:13.758000 [DEBUG] stop configReceiver
+2019/07/22 16:25:13.758013 [DEBUG] stop statusReceiver
+2019/07/22 16:25:13.758027 [DEBUG] stop launcher
+2019/07/22 16:25:13.758041 [DEBUG] stop observer
+2019/07/22 16:25:13.758048 [INFO ] Controller::~Controller
+2019/07/22 16:25:13.758100 [INFO ] ====  END  ====

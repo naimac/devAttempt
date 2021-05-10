@@ -1,0 +1,11 @@
+2019/07/24 10:19:58.547804 [INFO ] ==== START ====
+2019/07/24 10:19:58.547816 [DEBUG] ==================== Start test 2 : StatusReceiverFailure ====================
+2019/07/24 10:19:58.547822 [DEBUG] StatusReceiver::StatusReceiver
+2019/07/24 10:19:58.547882 [INFO ] StatusReceiver::init
+2019/07/24 10:19:58.547963 [ERROR] Json retrieving failed on fields <protobuf_host> or <protobuf_prot> : [[json.exception.out_of_range.403] key 'protobuf_host' not found]
+2019/07/24 10:19:58.547972 [INFO ] StatusReceiver::init
+2019/07/24 10:19:58.547987 [ERROR] Error on setting UDP socket !
+2019/07/24 10:19:58.547992 [INFO ] StatusReceiver::init
+2019/07/24 10:19:58.548027 [DEBUG] ThreadID [9942912] | Receiver::init --> BIND FAILED !
+2019/07/24 10:19:58.548034 [INFO ] StatusReceiver::~StatusReceiver
+2019/07/24 10:19:58.548039 [INFO ] ====  END  ====

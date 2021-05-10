@@ -1,0 +1,12 @@
+2019/07/24 10:19:58.538867 [INFO ] ==== START ====
+2019/07/24 10:19:58.538881 [DEBUG] ==================== Start test 2 : ConfigReceiverFailure ====================
+2019/07/24 10:19:58.538889 [DEBUG] ConfigReceiver::ConfigReceiver
+2019/07/24 10:19:58.538933 [INFO ] ConfigReceiver::init
+2019/07/24 10:19:58.538940 [INFO ] ConfigReceiver::initNetconfServer 
+2019/07/24 10:19:58.538960 [ERROR] ConfigReceiver::initNetconfServer - Fail to loadModule
+2019/07/24 10:19:58.538966 [INFO ] ConfigReceiver::init
+2019/07/24 10:19:58.538984 [INFO ] ConfigReceiver::initNetconfServer 
+2019/07/24 10:19:58.538998 [ERROR] ConfigReceiver::initNetconfServer - Fail to init netconfServer !
+2019/07/24 10:19:58.539003 [INFO ] ConfigReceiver::~ConfigReceiver
+2019/07/24 10:19:58.539009 [INFO ] ConfigReceiver::stop [15]
+2019/07/24 10:19:58.539035 [INFO ] ====  END  ====
