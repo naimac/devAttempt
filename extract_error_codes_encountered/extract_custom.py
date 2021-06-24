@@ -1,4 +1,5 @@
 import re
+import csv
 from bs4 import BeautifulSoup
 
 		# os.walk
@@ -19,7 +20,7 @@ with open("50_111.html") as fp:
 
 with open("msg_scrap.csv", "w") as output_file:
 
-	output_file.write(soup.find_all(class_='pCreationDate') + ';')
+	output_file.write(soup.find_all(class_='pCreationDate')[0].get_text() + '\n')
 	output_file.write(soup.title.string + ';')
 
 	for i in range(pStd_len):
@@ -29,14 +30,13 @@ with open("msg_scrap.csv", "w") as output_file:
 			output_file.write(list_pUeberschrift3[i].get_text() + '\n')
 		else:
 			# print(list_pUeberschrift3[i].get_text())
-			output_file.write(list_pUeberschrift3[i].get_text() + ';')
-			list_pTabelle = soup.find_all(class_='pTabelle_Standard')
+			output_file.write(list_pUeberschrift3[i].get_text() + '\n')
 
 			for param in list_pTabelle:
 				# print(param.get_text())
-				output_file.write(param.get_text())
+				output_file.write(param.get_text() + ';')
 		# print(list_pStandard[i].get_text())
-		output_file.write(list_pStandard[i].get_text())
+		output_file.write(list_pStandard[i].get_text() + ';')
 
 	# print(soup.find_all(class_='pStandard')[0].get_text())
 	
