@@ -4,8 +4,9 @@ from bs4 import BeautifulSoup
 		# os.walk
 		# os.readir
 
-def scrapper():
-	with open("50_268.html") as fp:
+def scrapper(file_fullpath):
+	# with open("50_268.html") as fp:
+	with open(file_fullpath, 'r') as fp:
 		soup = BeautifulSoup(fp, "lxml")
 
 		error_code = soup.title.string
@@ -13,9 +14,12 @@ def scrapper():
 		list_header= soup.find_all(class_='pUeberschrift3')
 		list_param = soup.find_all(class_='pTabelle_Standard')
 
+		max_column = len(list_content) + len(list_header) + len(list_param)
+		print(f"max_column [{max_column}]")
+
 		param_count = len(soup.find_all('tr'))
 
-		return list_content, list_header, list_param, param_count, error_code 
+		return list_content, list_header, list_param, param_count, error_code, max_column
 
 def csvHeaderFiller(list_header, list_len):
 
@@ -23,6 +27,8 @@ def csvHeaderFiller(list_header, list_len):
 	
 	header.append('msg_id')
 	header.append('msg_object')
+
+	endColumn = ""
 
 	for i in range(list_len):
 		if (list_header[i].get_text() != "Parameter:"):
@@ -48,29 +54,33 @@ def csvParamFiller(list_param, header_len):
 			row.append(list_param[i].get_text() + list_param[i+1].get_text())
 	return row
 
-def csvFiller():
+def csvFiller(html_file, writer):
+	list_content, list_header, list_param, param_count, error_code = scrapper(html_file)
+	header_len = len(list_header)
 
-	if os.path.exists("msg_scrap.csv"):
-		os.remove("msg_scrap.csv")
+	header = csvHeaderFiller(list_header, header_len)
+	writer.writerow(header)
 
-	with open("msg_scrap.csv", "a") as output_file:
+	row = csvParamFiller(list_param, header_len)
 
-		writer = csv.writer(output_file, delimiter=";")
-		list_content, list_header, list_param, param_count, error_code = scrapper()
-		header_len = len(list_header)
+	j = 0
+	row[j] = error_code
 
-		header = csvHeaderFiller(list_header, header_len)
-		writer.writerow(header)
+	for i in range(len(list_content)):
+		j = i + 1
+		row[j] = list_content[i].get_text()
 
-		row = csvParamFiller(list_param, header_len)
+	writer.writerow(row)
 
-		j = 0
-		row[j] = error_code
+def main():
+	for (root, dirs, files) in os.walk("./html"):
+		for filename in files:
+			if filename.endswith(".html"):
+				with open("msg_scrap.csv", "a") as output_file:
+					writer = csv.writer(output_file, delimiter=";")
+					csvFiller(os.path.abspath(os.path.join("./html", filename)), writer)
+			# print(os.path.abspath(os.path.join("./html", filename)))
+#  csvFiller("./html")
 
-		for i in range(len(list_content)):
-			j = i + 1
-			row[j] = list_content[i].get_text()
-
-		writer.writerow(row)
-
-csvFiller()
+if __name__ == "__main__":
+	main()
