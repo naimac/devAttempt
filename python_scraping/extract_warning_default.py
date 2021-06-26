@@ -1,7 +1,7 @@
 import csv, os, re
-# from sre_constants import error
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup #lib de webScrapping
 
+# parse le fichier html et recuprere les champs interessants #webScrapping
 def scrapper(file_fullpath):
 
 	with open(file_fullpath, 'r') as fp:
@@ -12,12 +12,15 @@ def scrapper(file_fullpath):
 		list_header= soup.find_all(class_='pUeberschrift3')
 		list_param = soup.find_all(class_='pTabelle_Standard')
 
+		# to keep for syntax reminder
 		# param_count = len(soup.find_all('tr'))
 
 		return list_content, list_header, list_param, error_code
 
+# rempli la premiere ligne du fichier excel
 def csvHeaderFiller(max_param_size):
 
+	# initialisation d une liste vide
 	header = []
 	
 	header.append('objShortName')
@@ -26,37 +29,56 @@ def csvHeaderFiller(max_param_size):
 	header.append('compNR')
 	header.append('msgNR')
 	header.append('msg_object')
-	header.append('Message Class')
+	header.append('Message ClassID')
+	header.append('Message ClassName')
 	header.append('Reason')
 	header.append('Effect')
 	header.append('Solution')
 
+	# to keep for syntax reminder
 	# for i in range(len(list_header)):
 	# 	if (list_header[i].get_text() != "Parameter:"):
-	# 		header.append(list_header[i].get_text()[0:-1])
+	# 		header.append(list_header[i].get_text()[0:-1]) #lit la chaine en excluant le dernier caractere
 	
 	for i in range(max_param_size):
-		header.append("Parameter_" + str(i + 1))
+		header.append("Parameter_" + str(i + 1)) # concatene Parameter_ avec la position du parametre (parametre_1, parametre_2 ...)
 
 	header_count = len(header)
 
 	return header, header_count
 
+# cree un tableau a 2 dimension contenant les compNR rencontres et dont les informations (compNR, shortname, longname) sont splittes
 def getCompNrSplit(dir, compNR_split):
 
+	# syntax pour parcourir les fichiers / dossiers d'un dossier (dir)
+	# meme si root et dirs ne sont pas utilises je les laisse
 	for (root, dirs, files) in os.walk(dir):
 		for filename in files:
-			if (filename.endswith(".html") and ("_" not in filename)):
+			# on recupere les fichier qui ne represente que les categories (composant) de message (exemple : 50.html)
+			if (filename.endswith(".html") and ("_" not in filename)): 
 				absolute_filepath = os.path.abspath(os.path.join(dir, filename))
 				with open(absolute_filepath, 'r') as fp:
+					# il existe 3 parser possibles : lxml, html.parser, html5lib
 					soup = BeautifulSoup(fp, "lxml")
 					msgId = soup.find(class_='pUeberschrift1').get_text()
+
+					# on split le champ des informations relatif au composant : numero, shortname, fullname
+					# le champ est de la forme "id - shortname / longname" (exemple : "50 - Rc / RobotControl")
+					# on split la valeur du msgId selon " - " et " / "
 					split = re.split(' - | \/ ', msgId)
+
+					# on append le resultat du split (liste) dans une liste
+					# compNR_split est un "tableau" a 2 dimensions
 					compNR_split.append(split)
 
+# rempli les colonnes 1 et 2 du fichier excel avec shortname et longname du composant (compNR) extrait de error_code
+# cette methode est execute pour chaque fichier html (appelee par methode csvfiller)
 def csvCompNrFiller(row, error_code, compNRList):
 
+	# tricks pour tester que le compNR de l'error_code en cours de lecture correspond a un des compNR deja rencontre
+	# permets de remplir les champs "shortname" et "longname" par des valeur vides le cas echeant
 	found = 0
+
 	if ("_" in error_code):
 		error_code_split = re.split('_', error_code)
 		for i in range(len(compNRList)):
@@ -69,6 +91,7 @@ def csvCompNrFiller(row, error_code, compNRList):
 			row.append("")	
 		row.append(error_code)
 
+# methode principale de remplissage du fichier csv
 def csvFiller(list_param, list_content, error_code, writer, header_count, max_param_count, compNrList):
 
 	row = []
@@ -78,8 +101,13 @@ def csvFiller(list_param, list_content, error_code, writer, header_count, max_pa
 	msgIdSplit = re.split('_', error_code)
 	row.append(msgIdSplit[0])
 	row.append(msgIdSplit[1])
+	row.append(list_content[0].get_text())
 
-	for i in range(len(list_content)): #en plus de la liste de content il y a les colonnes short/fullName
+	msgClassIdSplit = re.split(' -', list_content[1].get_text())
+	row.append(msgClassIdSplit[0])
+	row.append(msgClassIdSplit[1])
+
+	for i in range(2, len(list_content)): # en plus de la liste de content il y a les colonnes short/fullName
 		row.append(list_content[i].get_text())
 	
 	for i in range(max_param_count):
@@ -88,6 +116,7 @@ def csvFiller(list_param, list_content, error_code, writer, header_count, max_pa
 
 	writer.writerow(row)
 
+# retourne le nombre max de parametres rencontres parmi l ensemble des messages d erreur
 def get_max_param_size():
 	max_param_size = 0
 	for (root, dirs, files) in os.walk("./html"):
@@ -101,6 +130,7 @@ def get_max_param_size():
 				max_param_size = current_max_param_size if (current_max_param_size > max_param_size) else max_param_size
 	return max_param_size
 
+# main ...
 def main():
 
 	dir = "./html"
@@ -118,11 +148,14 @@ def main():
 		writer.writerow(header)
 
 		max_param_size = get_max_param_size()
-
+	
+		# on passe une premiere fois sur tous les fichiers pour en extraire les fichier qui concerne les categories de messages
+		# ce sont des fichiers qui n ont pas de "_" dans leur nom
+		# on en extrait les informations relatif au composant : numero, shortname, fullname
 		compNrList = []
-		
 		getCompNrSplit(dir, compNrList)
 
+		# syntax du os.walk meme si root et dirs ne sont pas utilises je les mets dans le for
 		for (root, dirs, files) in os.walk(dir):
 			for filename in files:
 				if filename.endswith(".html") and "_" in filename:
@@ -134,27 +167,19 @@ def main():
 					if (len(list_content) >= 1):
 						classValue = list_content[1].get_text().lower()
 						classID = re.split(' -', classValue)
-						if (
-							classID[0] != "5" or 
-							classID[0] != "9" or
-							classID[0] != "12" or
-							(
-							classID[0] == "1" or
-							classID[0] == "2" or
-							classID[0] == "3" or
-							classID[0] == "4" or
-							classID[0] == "6" or
-							classID[0] == "7" or
-							classID[0] == "8" or
-							classID[0] == "10" or
-							classID[0] == "11"
-							)
-							):
-								msgCount += 1
-								csvFiller(list_param, list_content, error_code, writer, header_len, max_param_size, compNrList)
-		print(f"msg count [{msgCount}]")
+						# on ne traite que les messages qui ne sont pas de type info parmi les classes entre 1 et 12 exlu
+						if 1 <= int(classID[0]) and int(classID[0]) < 12 and (classID[0] != 5 or classID[0] != 9 ):
+							msgCount += 1
+							csvFiller(list_param, list_content, error_code, writer, header_len, max_param_size, compNrList)
+
+		print(f"Total of messages : [{msgCount}]")
 	
+# syntax pour dire :
+# si ce fichier est passe a l interpreteur python et contient une methode "main"
+# alors lance le main
 if __name__ == "__main__":
   	main()
-# total-info --> 6168 msg
-# total-info-(not warning nor error) --> 6565
+
+# RESULTAT
+# total avec extraction des msg de type info --> 6168 msg
+# total avec warning / default et classe de 1 a 12 --> 6475
