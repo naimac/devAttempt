@@ -1,3 +1,4 @@
 msg_id;msg_object;Message Class;Reason;Effect;Solution;Paramter_1;Paramter_2;Paramter_3;Paramter_4;Paramter_5;Paramter_6;Paramter_7;Paramter_8;Paramter_9;Paramter_10;Paramter_11;Paramter_12;Paramter_13;Paramter_14;Paramter_15;Paramter_16
 50_268;Catalogentry for drive %1 not found (robot: %2);6 -Error Appl;The drive is missing in the io-system configuration;--;check configuration;name of drive;name of robot
+6878_1;Interrupt initialisation;5 -Info;only for display output; ; 
 50_111;Fatal internal error: '%1';6 -Error Appl;A fatal internal error occurred.;The system has been stopped.;Get in contact with your system integrator. ;Information about the internal error
