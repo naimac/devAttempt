@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 import csv, os, re, sys
 import more_itertools as mit # permet de reset un iterator
 from bs4 import BeautifulSoup #lib de webScraping
@@ -48,7 +49,7 @@ def csvHeaderFiller(max_param_size):
 
 	return header, header_count
 
-# cree un tableau a 2 dimension contenant les compNR rencontres et dont les informations (compNR, shortname, longname) sont splittes
+# cree un tableau a 3 dimension contenant les compNR rencontres et dont les informations (compNR, shortname, longname) sont splittes
 # rempli la liste de compNr existant parmi tous les messages keba possibles
 def getCompNrSplit(dir, compNR_split):
 
@@ -65,12 +66,12 @@ def getCompNrSplit(dir, compNR_split):
 					msgId = soup.find(class_='pUeberschrift1').get_text()
 
 					# on split le champ des informations relatif au composant : numero, shortname, fullname
-					# le champ est de la forme "id - shortname / longname" (exemple : "50 - Rc / RobotControl")
-					# on split la valeur du msgId selon " - " et " / "
+					# le champ est de la forme "compNr - shortname / longname" (exemple : "50 - Rc / RobotControl")
+					# on split la valeur du msgId selon " - " et " / " (on separe les separateur par un "|" et on echappe le caractere "\")
 					split = re.split(' - | \/ ', msgId)
 
 					# on append le resultat du split (liste) dans une liste
-					# compNR_split est un "tableau" a 2 dimensions
+					# compNR_split est un "tableau" a 3 dimensions
 					compNR_split.append(split)
 
 # separe les infos compNr / msgNr du code erreur keba (compNr_msgNr)
@@ -84,11 +85,11 @@ def csvCompNrFiller(row, msgId, compNRList):
 	found = 0
 
 	if ("_" in msgId):
-		msgId_split = re.split('_', msgId)
+		msgId_split = re.split('_', msgId) # msgId == "compNr_msgNr" (keba message error code)
 
 		# attribution des valeur "shortname" et "longname" relatifs au code erreur en cours
 		for i in range(len(compNRList)):
-			if (msgId_split[0] == compNRList[i][0]):
+			if (msgId_split[0] == compNRList[i][0]): # numero de composant (compNr)
 				row.append(compNRList[i][1]) #shortName
 				row.append(compNRList[i][2]) #longName
 				found = 1
@@ -187,29 +188,30 @@ def main():
 						# le deuxieme champ "numero" correspond (filename_split[1]) au numero de msg d'erreur (msgNr)
 						filename_split = re.split('_', filename)
 
-						# ************************************* [ PHASE CRITIQUE : FILTRE ] ********************************************
+						# ************************************************ [ PHASE CRITIQUE : FILTRE ] ******************************************** #
+
 						# Cette partie conditionne les messages keba qu on va considerer afin de les faire traduire
 						# on verifie que le fichier html en cours de lecture n est pas a ignorer
 						# certains messages sont systematiquement a ignorer si ils ont un certain compNr
 						# certains messages sont a ignorer seulement si leur code erreur (compNr, msgNr) a une valeur precise
 						# le critere de filtre est contenu dans le fichier filter.csv
-						# on va au debut du fichier (reset de l iterateur)
+						# pour chaque fichier .html on retourne au debut du fichier filter.csv (reset de l iterateur) et on test
 						it.seek(0)
 						isRelevant = 1
 
-						# on test chaque ligne du fichier filter.csv
+						# on test chaque ligne du fichier filter.csv avec les infos du fichier .html en cours
 						for filter_row in it:
-							# le champ compNr du fichier html a le meme compNr qu'une ligne du fichier filter.csv
+							# le champ compNr du fichier .html a le meme compNr qu'une ligne du fichier filter.csv
 							# il pourrait etre a ignorer
 							if filename_split[0] == filter_row['compNr']:
 
-								# pour ce compNr il n y a pas de champ msgNr existant
+								# pour ce compNr il n y a pas de champ msgNr existant dans le filtre
 								# on le supprime qq soit son msgNr
 								if not filter_row['msgNr']:
 									isRelevant = 0
 								# pour ce compNr il y a un champ msgNr on le test
-								elif filename_split[1] != filter_row['msgNr']:
-									isRelevant = 1
+								elif filename_split[1] == filter_row['msgNr']:
+									isRelevant = 0
 
 						if isRelevant == 1:
 							absolute_filepath = os.path.abspath(os.path.join(dir, filename))
@@ -224,7 +226,7 @@ def main():
 									msgCount += 1 
 									csvFiller(param_list, html_field_value_list, msgId, writer, header_len, max_param_size, compNrList)
 
-						# **************************************************************************************************************
+						# ************************************************************************************************************************** #
 
 	if sys.version_info[0] == 3 :
 		if sys.version_info[1] == 5 :
@@ -239,6 +241,6 @@ if __name__ == "__main__":
   	main()
 
 # RESULTAT
-# total avec filtre sur msg de type info --> 6168 msg
-# total avec filtre sur warning / default et classe de 1 a 12 --> 6475
-# total avec filtre sur msg declares useless par lukas --> 2413
+# total msg keba a traiter ------------------------------------------> 6565
+# 	en ne conservant que les warning / default de classe 1 a 12 -----> 6475
+# 	en retirant les msg declares useless par lukas ------------------> 2413
